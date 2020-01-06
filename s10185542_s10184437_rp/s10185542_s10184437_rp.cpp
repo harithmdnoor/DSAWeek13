@@ -3,16 +3,25 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 int main()
 {
-	ofstream myfile;
-	myfile.open("product1.txt");
-	myfile << "iPhone_7\n";
-	myfile.close();
+	string line;
+	ifstream myfile("product2");
+	if (myfile.is_open())
+	{
+		while (getline(myfile, line))
+		{
+			cout << line << '\n';
+		}
+		myfile.close();
+	}
+
+	else cout << "Unable to open file";
+
 	return 0;
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
